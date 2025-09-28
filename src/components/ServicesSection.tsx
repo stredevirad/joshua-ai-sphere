@@ -58,13 +58,31 @@ const ServicesSection = () => {
 
   return (
     <section id="services" className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/5 to-background"></div>
+      {/* Enhanced Background with Depth */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/10 to-background"></div>
+      <div className="absolute inset-0 bg-gradient-radial from-primary/3 via-transparent to-accent/3"></div>
+      <div className="absolute inset-0 bg-gradient-mesh opacity-20"></div>
+      
+      {/* Enhanced Background Elements */}
       <div className="absolute top-20 right-10 opacity-5 animate-float">
-        <Code size={180} className="text-primary" />
+        <div className="relative">
+          <div className="absolute inset-0 bg-primary/30 rounded-full blur-3xl"></div>
+          <Code size={200} className="relative text-primary" />
+        </div>
       </div>
       <div className="absolute bottom-20 left-10 opacity-5 animate-float" style={{ animationDelay: '4s' }}>
-        <Lightbulb size={150} className="text-accent" />
+        <div className="relative">
+          <div className="absolute inset-0 bg-accent/30 rounded-full blur-3xl"></div>
+          <Lightbulb size={170} className="relative text-accent" />
+        </div>
+      </div>
+      
+      {/* Additional Floating Elements */}
+      <div className="absolute top-1/3 left-1/4 opacity-8 animate-float" style={{ animationDelay: '2s' }}>
+        <BarChart3 size={60} className="text-primary-glow" />
+      </div>
+      <div className="absolute bottom-1/4 right-1/3 opacity-8 animate-float" style={{ animationDelay: '6s' }}>
+        <Users size={50} className="text-accent-glow" />
       </div>
       
       <div className="relative max-w-7xl mx-auto">

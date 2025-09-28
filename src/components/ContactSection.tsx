@@ -108,12 +108,30 @@ const ContactSection = () => {
 
   return (
     <section id="contact" className="relative py-20 px-4 sm:px-6 lg:px-8 bg-muted/30 overflow-hidden">
-      {/* Background Elements */}
+      {/* Enhanced Background with Glassmorphism */}
+      <div className="absolute inset-0 bg-gradient-mesh opacity-20"></div>
+      <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 via-transparent to-accent/5"></div>
+      
+      {/* Enhanced Background Elements with Glow */}
       <div className="absolute top-10 left-10 opacity-5 animate-float">
-        <MessageCircle size={180} className="text-primary" />
+        <div className="relative">
+          <div className="absolute inset-0 bg-primary/20 rounded-full blur-2xl"></div>
+          <MessageCircle size={200} className="relative text-primary" />
+        </div>
       </div>
       <div className="absolute bottom-10 right-10 opacity-5 animate-float" style={{ animationDelay: '2s' }}>
-        <Send size={120} className="text-accent" />
+        <div className="relative">
+          <div className="absolute inset-0 bg-accent/20 rounded-full blur-2xl"></div>
+          <Send size={140} className="relative text-accent" />
+        </div>
+      </div>
+      
+      {/* Floating Contact Icons */}
+      <div className="absolute top-1/4 right-1/4 opacity-10 animate-float" style={{ animationDelay: '4s' }}>
+        <Mail size={40} className="text-primary-glow" />
+      </div>
+      <div className="absolute bottom-1/3 left-1/3 opacity-10 animate-float" style={{ animationDelay: '6s' }}>
+        <Phone size={30} className="text-accent-glow" />
       </div>
       
       <div className="relative max-w-7xl mx-auto">

@@ -69,12 +69,31 @@ const ExperienceSection = () => {
 
   return (
     <section id="experience" className="relative py-20 px-4 sm:px-6 lg:px-8 bg-muted/30 overflow-hidden">
-      {/* Background Elements */}
+      {/* Enhanced Multi-Layer Background */}
+      <div className="absolute inset-0 bg-gradient-to-bl from-background via-muted/15 to-background"></div>
+      <div className="absolute inset-0 bg-gradient-radial from-accent/5 via-transparent to-primary/5"></div>
+      <div className="absolute inset-0 bg-gradient-mesh opacity-25"></div>
+      
+      {/* Enhanced Background Elements with Glow */}
       <div className="absolute top-10 right-10 opacity-5 animate-float">
-        <Trophy size={200} className="text-primary" />
+        <div className="relative">
+          <div className="absolute inset-0 bg-primary/25 rounded-full blur-3xl"></div>
+          <Trophy size={220} className="relative text-primary" />
+        </div>
       </div>
       <div className="absolute bottom-10 left-10 opacity-5 animate-float" style={{ animationDelay: '3s' }}>
-        <Star size={120} className="text-accent" />
+        <div className="relative">
+          <div className="absolute inset-0 bg-accent/25 rounded-full blur-3xl"></div>
+          <Star size={140} className="relative text-accent" />
+        </div>
+      </div>
+      
+      {/* Award Animation Elements */}
+      <div className="absolute top-1/4 left-1/5 opacity-10 animate-float" style={{ animationDelay: '1s' }}>
+        <Award size={45} className="text-primary-glow" />
+      </div>
+      <div className="absolute bottom-1/3 right-1/4 opacity-10 animate-float" style={{ animationDelay: '5s' }}>
+        <Target size={40} className="text-accent-glow" />
       </div>
       
       <div className="relative max-w-6xl mx-auto">

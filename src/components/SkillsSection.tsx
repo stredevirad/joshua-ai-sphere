@@ -71,13 +71,39 @@ const SkillsSection = () => {
 
   return (
     <section id="skills" className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/5 to-background"></div>
+      {/* Enhanced Background with Neural Network Feel */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/8 to-background"></div>
+      <div className="absolute inset-0 bg-gradient-radial from-primary/4 via-transparent to-accent/4"></div>
+      <div className="absolute inset-0 bg-gradient-mesh opacity-30"></div>
+      
+      {/* Enhanced Background Elements */}
       <div className="absolute top-10 left-10 opacity-5 animate-float">
-        <Brain size={200} className="text-primary" />
+        <div className="relative">
+          <div className="absolute inset-0 bg-primary/30 rounded-full blur-3xl"></div>
+          <Brain size={220} className="relative text-primary" />
+        </div>
       </div>
       <div className="absolute bottom-10 right-10 opacity-5 animate-float" style={{ animationDelay: '2s' }}>
-        <Code size={150} className="text-accent" />
+        <div className="relative">
+          <div className="absolute inset-0 bg-accent/30 rounded-full blur-3xl"></div>
+          <Code size={170} className="relative text-accent" />
+        </div>
+      </div>
+      
+      {/* Skill-themed Floating Elements */}
+      <div className="absolute top-1/3 right-1/4 opacity-8 animate-float" style={{ animationDelay: '4s' }}>
+        <Users size={55} className="text-primary-glow" />
+      </div>
+      <div className="absolute bottom-1/4 left-1/3 opacity-8 animate-float" style={{ animationDelay: '6s' }}>
+        <Globe size={45} className="text-accent-glow" />
+      </div>
+      
+      {/* Progress Animation Indicators */}
+      <div className="absolute top-2/3 left-1/6 opacity-10 animate-pulse">
+        <TrendingUp size={35} className="text-primary" />
+      </div>
+      <div className="absolute top-1/6 right-1/6 opacity-10 animate-pulse" style={{ animationDelay: '2s' }}>
+        <Zap size={30} className="text-accent" />
       </div>
       
       <div className="relative max-w-7xl mx-auto">

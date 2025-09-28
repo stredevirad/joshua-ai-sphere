@@ -19,18 +19,36 @@ const HeroSection = () => {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center pt-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-muted/20"></div>
+      {/* Enhanced Background with Multiple Gradients */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/10 to-background"></div>
+      <div className="absolute inset-0 bg-gradient-radial from-primary/5 via-transparent to-transparent"></div>
+      <div className="absolute inset-0 bg-gradient-mesh opacity-30"></div>
       
-      {/* Floating Elements */}
-      <div className="absolute top-20 left-10 opacity-20 animate-float">
-        <Code size={40} className="text-primary" />
+      {/* Enhanced Floating Elements with Glow Effects */}
+      <div className="absolute top-20 left-10 opacity-10 animate-float">
+        <div className="relative">
+          <div className="absolute inset-0 bg-primary/30 rounded-full blur-xl"></div>
+          <Code size={60} className="relative text-primary" />
+        </div>
       </div>
-      <div className="absolute top-40 right-16 opacity-20 animate-float" style={{ animationDelay: '2s' }}>
-        <Database size={35} className="text-accent" />
+      <div className="absolute top-40 right-16 opacity-10 animate-float" style={{ animationDelay: '2s' }}>
+        <div className="relative">
+          <div className="absolute inset-0 bg-accent/30 rounded-full blur-xl"></div>
+          <Database size={50} className="relative text-accent" />
+        </div>
       </div>
-      <div className="absolute bottom-32 left-20 opacity-20 animate-float" style={{ animationDelay: '4s' }}>
-        <Brain size={45} className="text-primary-glow" />
+      <div className="absolute bottom-32 left-20 opacity-10 animate-float" style={{ animationDelay: '4s' }}>
+        <div className="relative">
+          <div className="absolute inset-0 bg-primary-glow/30 rounded-full blur-xl"></div>
+          <Brain size={70} className="relative text-primary-glow" />
+        </div>
+      </div>
+      
+      {/* Animated Particles */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-primary/30 rounded-full animate-ping" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-accent/40 rounded-full animate-ping" style={{ animationDelay: '3s' }}></div>
+        <div className="absolute bottom-1/4 right-1/4 w-3 h-3 bg-primary-glow/20 rounded-full animate-ping" style={{ animationDelay: '5s' }}></div>
       </div>
       
       {/* Grid Pattern */}
