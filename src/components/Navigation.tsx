@@ -70,7 +70,12 @@ const Navigation = () => {
 
           {/* Resume Button */}
           <div className="hidden md:block">
-            <Button variant="outline" size="sm" className="gap-2">
+            <Button 
+              variant="outline" 
+              size="sm" 
+              className="gap-2"
+              onClick={() => window.open('/CV.joshua.pdf', '_blank')}
+            >
               <Download size={16} />
               Resume
             </Button>
@@ -104,7 +109,12 @@ const Navigation = () => {
               </button>
             ))}
             <div className="pt-2">
-              <Button variant="outline" size="sm" className="gap-2 w-full">
+              <Button 
+                variant="outline" 
+                size="sm" 
+                className="gap-2 w-full"
+                onClick={() => window.open('/CV.joshua.pdf', '_blank')}
+              >
                 <Download size={16} />
                 Resume
               </Button>
