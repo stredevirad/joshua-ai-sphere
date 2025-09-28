@@ -179,14 +179,19 @@ const HeroSection = () => {
               <div className="absolute inset-0 rounded-full bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </a>
             
-            <a
-              href="mailto:joshuajapheth14@gmail.com"
+            <button
+              onClick={() => {
+                const contactSection = document.getElementById('contact');
+                if (contactSection) {
+                  contactSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
               className="group relative p-4 rounded-full bg-card/30 backdrop-blur-sm border border-border/50 hover:border-accent/50 transition-all duration-300 hover:scale-110 hover:shadow-lg"
-              aria-label="Email"
+              aria-label="Contact"
             >
               <Mail size={24} className="text-muted-foreground group-hover:text-accent transition-colors duration-300" />
               <div className="absolute inset-0 rounded-full bg-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </a>
+            </button>
             
             <a
               href="tel:+917994462227"

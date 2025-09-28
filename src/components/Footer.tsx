@@ -67,13 +67,18 @@ const Footer = () => {
               >
                 <Linkedin size={20} />
               </a>
-              <a
-                href="mailto:joshuajapheth14@gmail.com"
+              <button
+                onClick={() => {
+                  const contactSection = document.getElementById('contact');
+                  if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
                 className="text-muted-foreground hover:text-primary transition-colors duration-300"
-                aria-label="Email"
+                aria-label="Contact"
               >
                 <Mail size={20} />
-              </a>
+              </button>
             </div>
             <p className="text-sm text-muted-foreground">
               joshuajapheth14@gmail.com
