@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Calendar, Trophy, Users, Gamepad2 } from 'lucide-react';
+import { Calendar, Trophy, Users, Gamepad2, Sparkles, Star, Award, Target } from 'lucide-react';
 
 const ExperienceSection = () => {
   const experiences = [
@@ -60,27 +60,82 @@ const ExperienceSection = () => {
     return colors[type as keyof typeof colors] || "bg-gray-500/10 text-gray-400 border-gray-500/20";
   };
 
+  const experienceStats = [
+    { icon: Trophy, number: "3+", label: "Events Participated" },
+    { icon: Users, number: "15+", label: "Team Collaborations" },
+    { icon: Target, number: "5+", label: "Skills Developed" },
+    { icon: Award, number: "100%", label: "Learning Rate" }
+  ];
+
   return (
-    <section id="experience" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="section-title">Experience & Participation</h2>
+    <section id="experience" className="relative py-20 px-4 sm:px-6 lg:px-8 bg-muted/30 overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute top-10 right-10 opacity-5 animate-float">
+        <Trophy size={200} className="text-primary" />
+      </div>
+      <div className="absolute bottom-10 left-10 opacity-5 animate-float" style={{ animationDelay: '3s' }}>
+        <Star size={120} className="text-accent" />
+      </div>
+      
+      <div className="relative max-w-6xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="section-title">Experience & Participation</h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            Building expertise through hands-on experience and collaborative learning
+          </p>
+        </div>
+
+        {/* Experience Stats */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+          {experienceStats.map((stat, index) => {
+            const IconComponent = stat.icon;
+            return (
+              <div key={index} className="text-center group">
+                <div className="relative mx-auto w-16 h-16 mb-4">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full blur-lg group-hover:blur-none transition-all duration-500"></div>
+                  <div className="relative w-full h-full bg-card/50 backdrop-blur-sm border border-border/50 rounded-full flex items-center justify-center group-hover:border-primary/50 transition-all duration-300">
+                    <IconComponent size={24} className="text-primary group-hover:scale-110 transition-transform duration-300" />
+                  </div>
+                </div>
+                <div className="text-2xl font-bold text-gradient mb-2">{stat.number}</div>
+                <div className="text-sm text-muted-foreground">{stat.label}</div>
+              </div>
+            );
+          })}
+        </div>
         
         <div className="space-y-8">
           {experiences.map((experience, index) => {
             const IconComponent = experience.icon;
             return (
-              <Card key={index} className="card-elegant">
-                <CardHeader className="pb-4">
+              <Card key={index} className="group relative overflow-hidden card-elegant hover:shadow-2xl transition-all duration-500 border-border/50 hover:border-primary/30">
+                {/* Hover Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/3 via-transparent to-accent/3 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                {/* Featured Badge for First Experience */}
+                {index === 0 && (
+                  <div className="absolute top-4 right-4 z-10">
+                    <div className="flex items-center gap-1 px-2 py-1 bg-gradient-to-r from-primary to-accent rounded-full text-xs font-bold text-white">
+                      <Star size={12} />
+                      Recent
+                    </div>
+                  </div>
+                )}
+                
+                <CardHeader className="relative pb-6">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                     <div className="flex items-center gap-4">
-                      <div className="bg-primary/10 p-3 rounded-lg">
-                        <IconComponent className="text-primary" size={24} />
+                      <div className="relative">
+                        <div className="absolute -inset-2 bg-primary/20 rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div className="relative bg-primary/10 p-4 rounded-xl group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
+                          <IconComponent className="text-primary" size={28} />
+                        </div>
                       </div>
                       <div>
-                        <CardTitle className="text-xl text-foreground">
+                        <CardTitle className="text-xl text-foreground group-hover:text-primary transition-colors duration-300">
                           {experience.title}
                         </CardTitle>
-                        <p className="text-primary font-medium">
+                        <p className="text-primary font-semibold">
                           {experience.organization}
                         </p>
                       </div>
@@ -101,17 +156,20 @@ const ExperienceSection = () => {
                   </div>
                 </CardHeader>
                 
-                <CardContent className="space-y-6">
-                  <p className="text-muted-foreground leading-relaxed">
+                <CardContent className="relative space-y-6">
+                  <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/80 transition-colors duration-300">
                     {experience.description}
                   </p>
                   
                   <div>
-                    <h4 className="font-semibold mb-3">Key Highlights:</h4>
-                    <ul className="grid sm:grid-cols-2 gap-2">
+                    <h4 className="font-semibold mb-3 flex items-center gap-2">
+                      <Sparkles size={16} className="text-accent" />
+                      Key Highlights:
+                    </h4>
+                    <ul className="grid sm:grid-cols-2 gap-3">
                       {experience.highlights.map((highlight, highlightIndex) => (
-                        <li key={highlightIndex} className="flex items-center gap-2 text-sm text-muted-foreground">
-                          <div className="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0"></div>
+                        <li key={highlightIndex} className="flex items-center gap-3 text-sm text-muted-foreground group-hover:text-foreground/70 transition-colors duration-300">
+                          <div className="w-2 h-2 bg-gradient-to-r from-accent to-primary rounded-full flex-shrink-0 animate-pulse"></div>
                           {highlight}
                         </li>
                       ))}
@@ -119,10 +177,13 @@ const ExperienceSection = () => {
                   </div>
                   
                   <div>
-                    <h4 className="font-semibold mb-3">Skills Developed:</h4>
+                    <h4 className="font-semibold mb-3 flex items-center gap-2">
+                      <Target size={16} className="text-primary" />
+                      Skills Developed:
+                    </h4>
                     <div className="flex flex-wrap gap-2">
                       {experience.skills.map((skill) => (
-                        <span key={skill} className="skill-tag">
+                        <span key={skill} className="skill-tag hover:bg-primary/20 transition-colors duration-200">
                           {skill}
                         </span>
                       ))}
@@ -134,14 +195,38 @@ const ExperienceSection = () => {
           })}
         </div>
 
-        {/* Experience Summary */}
-        <div className="mt-12 text-center">
-          <h3 className="text-2xl font-semibold mb-4 text-gradient">Learning Through Experience</h3>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Each hackathon, competition, and collaborative project has been a stepping stone in my journey, 
-            teaching me the value of teamwork, innovation under pressure, and the importance of 
-            continuous learning in the rapidly evolving tech landscape.
-          </p>
+        {/* Enhanced Experience Summary */}
+        <div className="relative mt-16">
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 rounded-2xl blur-xl opacity-30"></div>
+          <div className="relative bg-card/50 backdrop-blur-sm border border-border/50 rounded-2xl p-8 text-center">
+            <div className="max-w-4xl mx-auto space-y-6">
+              <div className="flex items-center justify-center gap-2 mb-4">
+                <Award size={24} className="text-primary animate-pulse" />
+                <h3 className="text-3xl font-bold text-gradient">Learning Through Experience</h3>
+                <Award size={24} className="text-accent animate-pulse" />
+              </div>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Each hackathon, competition, and collaborative project has been a stepping stone in my journey, 
+                teaching me the value of teamwork, innovation under pressure, and the importance of 
+                continuous learning in the rapidly evolving tech landscape.
+              </p>
+              
+              <div className="grid md:grid-cols-3 gap-4 mt-8">
+                <div className="flex items-center gap-2 p-3 rounded-lg bg-background/50 border border-border/30">
+                  <Trophy size={16} className="text-primary" />
+                  <span className="text-sm font-medium">Achievement-Oriented</span>
+                </div>
+                <div className="flex items-center gap-2 p-3 rounded-lg bg-background/50 border border-border/30">
+                  <Users size={16} className="text-accent" />
+                  <span className="text-sm font-medium">Team Player</span>
+                </div>
+                <div className="flex items-center gap-2 p-3 rounded-lg bg-background/50 border border-border/30">
+                  <Target size={16} className="text-primary" />
+                  <span className="text-sm font-medium">Goal-Focused</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
