@@ -74,7 +74,12 @@ const Navigation = () => {
               variant="outline" 
               size="sm" 
               className="gap-2"
-              onClick={() => window.open('/CV.joshua.pdf', '_blank')}
+              onClick={() => {
+                const link = document.createElement('a');
+                link.href = '/CV.joshua.pdf';
+                link.download = 'Joshua_Herbert_Resume.pdf';
+                link.click();
+              }}
             >
               <Download size={16} />
               Resume
@@ -113,7 +118,12 @@ const Navigation = () => {
                 variant="outline" 
                 size="sm" 
                 className="gap-2 w-full"
-                onClick={() => window.open('/CV.joshua.pdf', '_blank')}
+                onClick={() => {
+                  const link = document.createElement('a');
+                  link.href = '/CV.joshua.pdf';
+                  link.download = 'Joshua_Herbert_Resume.pdf';
+                  link.click();
+                }}
               >
                 <Download size={16} />
                 Resume
