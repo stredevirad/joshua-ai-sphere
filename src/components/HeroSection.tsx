@@ -158,7 +158,7 @@ const HeroSection = () => {
           {/* Enhanced Social Links */}
           <div className="flex justify-center gap-8 mb-16 animate-fadeIn" style={{ animationDelay: '1s' }}>
             <a
-              href="https://github.com/stredevirad/stredevirad.github.io"
+              href="https://github.com/stredevirad"
               target="_blank"
               rel="noopener noreferrer"
               className="group relative p-4 rounded-full bg-card/30 backdrop-blur-sm border border-border/50 hover:border-primary/50 transition-all duration-300 hover:scale-110 hover:shadow-lg"

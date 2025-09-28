@@ -94,7 +94,7 @@ const ContactSection = () => {
       icon: Github,
       title: "GitHub",
       value: "stredevirad",
-      href: "https://github.com/stredevirad/stredevirad.github.io",
+      href: "https://github.com/stredevirad",
       color: "hover:text-gray-400"
     },
     {

@@ -50,7 +50,7 @@ const Footer = () => {
             <h4 className="font-semibold mb-4">Connect With Me</h4>
             <div className="flex justify-center md:justify-end gap-4 mb-4">
               <a
-                href="https://github.com/stredevirad/stredevirad.github.io"
+                href="https://github.com/stredevirad"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors duration-300"
