@@ -1,4 +1,4 @@
-import { ArrowDown, Github, Linkedin, Mail, Phone } from 'lucide-react';
+import { ArrowDown, Github, Linkedin, Mail, Phone, Code, Database, Brain } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import profileImage from '@/assets/joshua-profile.jpg';
 
@@ -18,98 +18,167 @@ const HeroSection = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center pt-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto text-center">
+    <section id="home" className="relative min-h-screen flex items-center justify-center pt-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-muted/20"></div>
+      
+      {/* Floating Elements */}
+      <div className="absolute top-20 left-10 opacity-20 animate-float">
+        <Code size={40} className="text-primary" />
+      </div>
+      <div className="absolute top-40 right-16 opacity-20 animate-float" style={{ animationDelay: '2s' }}>
+        <Database size={35} className="text-accent" />
+      </div>
+      <div className="absolute bottom-32 left-20 opacity-20 animate-float" style={{ animationDelay: '4s' }}>
+        <Brain size={45} className="text-primary-glow" />
+      </div>
+      
+      {/* Grid Pattern */}
+      <div className="absolute inset-0 opacity-[0.02]">
+        <div className="h-full w-full bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%221%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%221%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+      </div>
+
+      <div className="relative max-w-7xl mx-auto text-center z-10">
         <div className="animate-fadeIn">
-          {/* Profile Image */}
-          <div className="mb-8">
-            <div className="relative inline-block">
-              <img
-                src={profileImage}
-                alt="Joshua Herbert Japheth Profile"
-                className="w-48 h-48 sm:w-56 sm:h-56 rounded-full object-cover mx-auto shadow-glow animate-float"
-              />
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/20 to-accent/20 animate-glow"></div>
+          {/* Profile Image with Enhanced Design */}
+          <div className="mb-12">
+            <div className="relative inline-block group">
+              {/* Outer Glow Ring */}
+              <div className="absolute -inset-4 bg-gradient-to-r from-primary/30 via-accent/30 to-primary/30 rounded-full blur-xl opacity-75 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
+              
+              {/* Main Image Container */}
+              <div className="relative">
+                <img
+                  src={profileImage}
+                  alt="Joshua Herbert Japheth Profile"
+                  className="w-52 h-52 sm:w-64 sm:h-64 rounded-full object-cover mx-auto shadow-2xl animate-float border-4 border-background/50 backdrop-blur-sm"
+                />
+                
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary/10 via-transparent to-accent/10 group-hover:from-primary/20 group-hover:to-accent/20 transition-all duration-500"></div>
+                
+                {/* Status Indicator */}
+                <div className="absolute bottom-6 right-6 w-6 h-6 bg-accent rounded-full border-4 border-background animate-pulse"></div>
+              </div>
             </div>
           </div>
 
-          {/* Main Content */}
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6">
-            <span className="block text-foreground">Joshua Herbert</span>
-            <span className="block hero-text">Japheth</span>
-          </h1>
+          {/* Enhanced Main Content */}
+          <div className="space-y-6 mb-12">
+            <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight">
+              <span className="block text-foreground mb-2 animate-fadeIn">Joshua Herbert</span>
+              <span className="block hero-text animate-fadeIn" style={{ animationDelay: '0.2s' }}>Japheth</span>
+            </h1>
 
-          <p className="text-xl sm:text-2xl text-muted-foreground mb-4 max-w-3xl mx-auto">
-            Aspiring AI & Data Science Professional
-          </p>
+            <div className="space-y-4 animate-fadeIn" style={{ animationDelay: '0.4s' }}>
+              <p className="text-xl sm:text-3xl font-light text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+                Aspiring AI & Data Science Professional
+              </p>
+              
+              <div className="flex items-center justify-center gap-2 text-lg text-muted-foreground/80">
+                <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+                <span>B.Tech Student at RSET, Kochi</span>
+                <div className="w-1 h-1 bg-muted-foreground/50 rounded-full"></div>
+                <span>ML Enthusiast</span>
+                <div className="w-1 h-1 bg-muted-foreground/50 rounded-full"></div>
+                <span>Game Developer</span>
+              </div>
+            </div>
+          </div>
 
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            B.Tech Student at RSET, Kochi • Passionate about Machine Learning, Data Visualization & Game Development
-          </p>
+          {/* Modern Floating Cards */}
+          <div className="mb-12 animate-fadeIn" style={{ animationDelay: '0.6s' }}>
+            <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/50 transition-all duration-300 hover:scale-105">
+                <Brain size={16} className="text-primary" />
+                <span className="text-sm font-medium">Machine Learning</span>
+              </div>
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-card/50 backdrop-blur-sm border border-border/50 hover:border-accent/50 transition-all duration-300 hover:scale-105">
+                <Database size={16} className="text-accent" />
+                <span className="text-sm font-medium">Data Visualization</span>
+              </div>
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary-glow/50 transition-all duration-300 hover:scale-105">
+                <Code size={16} className="text-primary-glow" />
+                <span className="text-sm font-medium">Game Development</span>
+              </div>
+            </div>
+          </div>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+          {/* Enhanced CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 animate-fadeIn" style={{ animationDelay: '0.8s' }}>
             <Button 
               onClick={scrollToProjects}
-              className="hero-button"
+              className="relative group overflow-hidden rounded-xl px-8 py-4 font-semibold text-lg bg-primary text-primary-foreground hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
               size="lg"
             >
-              View My Work
+              <span className="relative z-10">View My Work</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-primary-glow/0 via-primary-glow/20 to-primary-glow/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
             </Button>
+            
             <Button 
               onClick={scrollToAbout}
               variant="outline" 
               size="lg"
-              className="hover:bg-secondary hover:border-primary"
+              className="relative group rounded-xl px-8 py-4 font-semibold text-lg border-2 border-border hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 hover:scale-105 backdrop-blur-sm"
             >
-              Learn More
+              <span className="relative z-10">Learn More</span>
             </Button>
           </div>
 
-          {/* Social Links */}
-          <div className="flex justify-center space-x-6 mb-12">
+          {/* Enhanced Social Links */}
+          <div className="flex justify-center gap-8 mb-16 animate-fadeIn" style={{ animationDelay: '1s' }}>
             <a
               href="https://github.com/stredevirad/stredevirad.github.io"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors duration-300"
+              className="group relative p-4 rounded-full bg-card/30 backdrop-blur-sm border border-border/50 hover:border-primary/50 transition-all duration-300 hover:scale-110 hover:shadow-lg"
               aria-label="GitHub Profile"
             >
-              <Github size={24} />
+              <Github size={24} className="text-muted-foreground group-hover:text-primary transition-colors duration-300" />
+              <div className="absolute inset-0 rounded-full bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </a>
+            
             <a
               href="https://www.linkedin.com/in/joshuaherbertjapheth/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors duration-300"
+              className="group relative p-4 rounded-full bg-card/30 backdrop-blur-sm border border-border/50 hover:border-primary/50 transition-all duration-300 hover:scale-110 hover:shadow-lg"
               aria-label="LinkedIn Profile"
             >
-              <Linkedin size={24} />
+              <Linkedin size={24} className="text-muted-foreground group-hover:text-primary transition-colors duration-300" />
+              <div className="absolute inset-0 rounded-full bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </a>
+            
             <a
               href="mailto:joshuajapheth14@gmail.com"
-              className="text-muted-foreground hover:text-primary transition-colors duration-300"
+              className="group relative p-4 rounded-full bg-card/30 backdrop-blur-sm border border-border/50 hover:border-accent/50 transition-all duration-300 hover:scale-110 hover:shadow-lg"
               aria-label="Email"
             >
-              <Mail size={24} />
+              <Mail size={24} className="text-muted-foreground group-hover:text-accent transition-colors duration-300" />
+              <div className="absolute inset-0 rounded-full bg-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </a>
+            
             <a
               href="tel:+917994462227"
-              className="text-muted-foreground hover:text-primary transition-colors duration-300"
+              className="group relative p-4 rounded-full bg-card/30 backdrop-blur-sm border border-border/50 hover:border-accent-glow/50 transition-all duration-300 hover:scale-110 hover:shadow-lg"
               aria-label="Phone"
             >
-              <Phone size={24} />
+              <Phone size={24} className="text-muted-foreground group-hover:text-accent-glow transition-colors duration-300" />
+              <div className="absolute inset-0 rounded-full bg-accent-glow/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </a>
           </div>
 
-          {/* Scroll Indicator */}
-          <button
-            onClick={scrollToAbout}
-            className="animate-bounce text-muted-foreground hover:text-primary transition-colors duration-300"
-            aria-label="Scroll to About section"
-          >
-            <ArrowDown size={32} />
-          </button>
+          {/* Enhanced Scroll Indicator */}
+          <div className="animate-fadeIn" style={{ animationDelay: '1.2s' }}>
+            <button
+              onClick={scrollToAbout}
+              className="group relative p-3 rounded-full hover:bg-primary/10 transition-all duration-300 animate-bounce hover:animate-none"
+              aria-label="Scroll to About section"
+            >
+              <ArrowDown size={28} className="text-muted-foreground group-hover:text-primary transition-colors duration-300" />
+              <div className="absolute inset-0 rounded-full border border-muted-foreground/20 group-hover:border-primary/50 transition-colors duration-300"></div>
+            </button>
+          </div>
         </div>
       </div>
     </section>
