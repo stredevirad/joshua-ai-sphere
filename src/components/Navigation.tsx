@@ -13,7 +13,8 @@ const Navigation = () => {
     { id: 'services', label: 'Services' },
     { id: 'experience', label: 'Experience' },
     { id: 'skills', label: 'Skills' },
-    { id: 'contact', label: 'Contact' }
+    { id: 'contact', label: 'Contact' },
+    { id: 'repository', label: 'Repository', isExternal: true, href: 'https://github.com/stredevirad/joshua-ai-sphere' }
   ];
 
   useEffect(() => {
@@ -34,10 +35,14 @@ const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+  const handleNavClick = (item: any) => {
+    if (item.isExternal) {
+      window.open(item.href, '_blank', 'noopener,noreferrer');
+    } else {
+      const element = document.getElementById(item.id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
     setIsOpen(false);
   };
@@ -57,7 +62,7 @@ const Navigation = () => {
               {navItems.map((item) => (
                 <button
                   key={item.id}
-                  onClick={() => scrollToSection(item.id)}
+                  onClick={() => handleNavClick(item)}
                   className={`nav-link ${
                     activeSection === item.id ? 'text-primary' : 'text-foreground'
                   }`}
@@ -105,7 +110,7 @@ const Navigation = () => {
             {navItems.map((item) => (
               <button
                 key={item.id}
-                onClick={() => scrollToSection(item.id)}
+                onClick={() => handleNavClick(item)}
                 className={`block px-3 py-2 text-base font-medium w-full text-left ${
                   activeSection === item.id ? 'text-primary' : 'text-foreground'
                 }`}
