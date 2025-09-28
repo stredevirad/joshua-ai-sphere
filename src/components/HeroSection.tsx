@@ -1,6 +1,5 @@
 import { ArrowDown, Github, Linkedin, Mail, Phone, Code, Database, Brain } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import profileImage from '@/assets/joshua-profile.jpg';
 
 const HeroSection = () => {
   const scrollToAbout = () => {
@@ -58,25 +57,38 @@ const HeroSection = () => {
 
       <div className="relative max-w-7xl mx-auto text-center z-10">
         <div className="animate-fadeIn">
-          {/* Profile Image with Enhanced Design */}
+          {/* Animated Center Element */}
           <div className="mb-12">
             <div className="relative inline-block group">
-              {/* Outer Glow Ring */}
-              <div className="absolute -inset-4 bg-gradient-to-r from-primary/30 via-accent/30 to-primary/30 rounded-full blur-xl opacity-75 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
+              {/* Rotating Rings */}
+              <div className="absolute inset-0 w-64 h-64 mx-auto">
+                <div className="absolute inset-0 border-2 border-primary/20 rounded-full animate-spin" style={{ animationDuration: '20s' }}></div>
+                <div className="absolute inset-4 border border-accent/30 rounded-full animate-spin" style={{ animationDuration: '15s', animationDirection: 'reverse' }}></div>
+                <div className="absolute inset-8 border border-primary-glow/20 rounded-full animate-spin" style={{ animationDuration: '10s' }}></div>
+              </div>
               
-              {/* Main Image Container */}
-              <div className="relative">
-                <img
-                  src={profileImage}
-                  alt="Joshua Herbert Japheth Profile"
-                  className="w-52 h-52 sm:w-64 sm:h-64 rounded-full object-cover mx-auto shadow-2xl animate-float border-4 border-background/50 backdrop-blur-sm"
-                />
+              {/* Central Animated Icon */}
+              <div className="relative w-64 h-64 mx-auto flex items-center justify-center">
+                {/* Pulsing Background */}
+                <div className="absolute inset-16 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 rounded-full animate-pulse"></div>
                 
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary/10 via-transparent to-accent/10 group-hover:from-primary/20 group-hover:to-accent/20 transition-all duration-500"></div>
+                {/* Main Icon */}
+                <div className="relative z-10 p-8 rounded-full bg-card/30 backdrop-blur-sm border border-border/50 group-hover:border-primary/50 transition-all duration-500 hover:scale-110">
+                  <Brain size={80} className="text-primary animate-pulse" />
+                </div>
                 
-                {/* Status Indicator */}
-                <div className="absolute bottom-6 right-6 w-6 h-6 bg-accent rounded-full border-4 border-background animate-pulse"></div>
+                {/* Orbiting Elements */}
+                <div className="absolute inset-0 animate-spin" style={{ animationDuration: '8s' }}>
+                  <Code size={24} className="absolute top-4 left-1/2 transform -translate-x-1/2 text-accent" />
+                </div>
+                <div className="absolute inset-0 animate-spin" style={{ animationDuration: '12s', animationDirection: 'reverse' }}>
+                  <Database size={20} className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-primary-glow" />
+                </div>
+                
+                {/* Floating Particles */}
+                <div className="absolute top-8 right-8 w-3 h-3 bg-primary/60 rounded-full animate-ping"></div>
+                <div className="absolute bottom-8 left-8 w-2 h-2 bg-accent/60 rounded-full animate-ping" style={{ animationDelay: '1s' }}></div>
+                <div className="absolute top-1/2 right-4 w-1 h-1 bg-primary-glow/60 rounded-full animate-ping" style={{ animationDelay: '2s' }}></div>
               </div>
             </div>
           </div>
